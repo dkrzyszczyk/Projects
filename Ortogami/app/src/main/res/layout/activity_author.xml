@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_author"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/white"
+    tools:context="com.example.dominika.ortogami.AuthorActivity">
+
+    <TextView
+        android:text="@string/textAuthor"
+        android:layout_width="match_parent"
+        android:id="@+id/textAuthor"
+        android:layout_height="250dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/me"
+        android:id="@+id/imageMe"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:text="@string/textShort"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:id="@+id/textShort"
+        android:layout_alignTop="@+id/imageMe"
+        android:layout_toRightOf="@+id/imageMe"
+        android:layout_toEndOf="@+id/imageMe"
+        android:gravity="center"
+        />
+</RelativeLayout>

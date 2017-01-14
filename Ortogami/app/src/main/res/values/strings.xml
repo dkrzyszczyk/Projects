@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Ortogami</string>
+    <string name="rules">ZASADY</string>
+    <string name="play">GRA</string>
+    <string name="ranking">RANKING</string>
+    <string name="author">AUTOR</string>
+    <color name="white">#FFFFFF</color>
+    <string name="rulesText">
+        Drogi użytkowniku!\n
+        \n
+        Język polski piękny jest, trudny jest…\n
+        wiadomo to nie od dziś.\n
+        Zgarnijmy więc Twoje pięć minut i\n
+        wzbogaćmy je o wiedzę\n
+        z zakresu poprawnej pisowni.\n
+        \n
+        Gra obsługuje dwa moduły:\n
+        ortograficzny oraz ortograficzno-gramatyczny.\n
+        Ten drugi będzie dla Ciebie dostępny,\n
+        gdy przejdziesz gratkę z początkowym.\n
+        \n
+        Każdy moduł posiada dwa poziomy:\n
+        podstawowy oraz zaawansowany.\n
+        Czym się różnią?\n
+        Czasem wyświetlania wyrazu,\n
+        jak również ilością rund, które musisz pokonać.\n
+        Jedno poprawnie uzupełnione słowo\n
+        równa się jednej zakończonej rundzie.\n
+        \n
+        Każda runda polega na tym, byś\n
+        dotknął poprawną literkę, której brakuje\n
+        w wyświetlanym u dołu aplikacji wyrazie.\n
+        \n
+        Przykład: jakiej literki brakuje w słowie:\n
+        bła__ostka\n
+        Odpowiedź: „h”\n
+        \n
+        Będziesz musiał więc kliknąć w spadające „h”!\n
+    </string>
+    <string name="textClean">Kliknij szczotkę,\n
+        by wrócić do ustawień początkowych</string>
+    <string name="textAuthor">
+        Mam nadzieję, że Ci się spodoba.
+        Może odrobinkę wciągnie
+        a przy okazji nauczy trochę tego i owego.
+        W razie jakichkolwiek pytań,
+        jak i również problemów czy sugestii
+        będę wdzięczna za nawiązanie kontaktu.
+        Poniżej znajdziesz mój mail.
+        Udanej zabawy!
+        \n
+        krzyszczykdominika@gmail.com
+    </string>
+    <string name="textShort">
+    Cześć!\n
+        Ta dziewczyna po lewej\n
+        to już nie tak raczkująca\n
+        studentka Politechniki Gdańskiej.\n
+        Nazywa się Dominika Krzyszczyk\n
+        i jest jej niezwykle miło,\n
+        że zechciałeś/aś poświęcić swój czas\n
+        na jej pierwszą, androidową apkę!\n
+    </string>
+    <string-array name="words_base_orto">
+        <item>błahostka</item>
+        <item>żołądź</item>
+    </string-array>
+</resources>
