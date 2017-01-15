@@ -11,59 +11,53 @@
     tools:context="com.example.dominika.ortogami.OrtoActivity">
 
     <Button
-        android:text="D"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignTop="@+id/buttonCH"
-        android:layout_toRightOf="@+id/buttonB"
-        android:layout_toEndOf="@+id/buttonB"
-        android:id="@+id/buttonD" />
-
-    <Button
-        android:text="A"
+        android:text="U"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="27dp"
-        android:id="@+id/buttonA"
+        android:id="@+id/buttonU"
         android:cursorVisible="false"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp" />
+        android:layout_marginStart="11dp"
+        />
 
     <Button
-        android:text="B"
+        android:text="RZ"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:id="@+id/buttonB"
+        android:id="@+id/buttonRZ"
         android:layout_marginRight="17dp"
         android:layout_marginEnd="17dp"
-        android:layout_below="@+id/buttonD"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="13dp"
+        />
 
     <Button
-        android:text="C"
+        android:text="Ó"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:id="@+id/buttonC"
+        android:id="@+id/buttonÓ"
         android:layout_marginLeft="54dp"
         android:layout_marginStart="54dp"
-        android:layout_alignBaseline="@+id/buttonA"
-        android:layout_alignBottom="@+id/buttonA"
-        android:layout_toRightOf="@+id/buttonA"
-        android:layout_toEndOf="@+id/buttonA" />
+        android:layout_alignBaseline="@+id/buttonU"
+        android:layout_alignBottom="@+id/buttonU"
+        android:layout_toRightOf="@+id/buttonU"
+        android:layout_toEndOf="@+id/buttonU"
+        />
 
     <Button
         android:text="CH"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:id="@+id/buttonCH"
-        android:layout_below="@+id/buttonC"
-        android:layout_toLeftOf="@+id/buttonB"
-        android:layout_toStartOf="@+id/buttonB" />
+        android:layout_below="@+id/buttonÓ"
+        android:layout_toLeftOf="@+id/buttonRZ"
+        android:layout_toStartOf="@+id/buttonRZ"
+        />
 
     <Button
         android:text="H"
@@ -71,8 +65,9 @@
         android:layout_height="60dp"
         android:id="@+id/buttonH"
         android:layout_below="@+id/buttonCH"
-        android:layout_alignLeft="@+id/buttonC"
-        android:layout_alignStart="@+id/buttonC" />
+        android:layout_alignLeft="@+id/buttonÓ"
+        android:layout_alignStart="@+id/buttonÓ"
+        />
 
     <TextView
         android:text="TextView"
@@ -83,4 +78,15 @@
         android:gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Ż"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="13dp"
+        android:id="@+id/buttonŻ"
+        android:layout_alignTop="@+id/buttonH"
+        android:layout_toLeftOf="@+id/buttonÓ"
+        android:layout_toStartOf="@+id/buttonÓ"
+        />
 </RelativeLayout>

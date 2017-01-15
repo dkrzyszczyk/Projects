@@ -1,22 +1,25 @@
 package com.example.dominika.ortogami;
 
+import android.net.wifi.p2p.WifiP2pManager;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import java.util.Random;
 
-public class OrtoActivity extends AppCompatActivity implements Runnable{
+public class OrtoActivity extends AppCompatActivity implements Runnable, View.OnClickListener{
 
     private Button buttonH;
     private Button buttonCH;
-    private Button buttonA;
-    private Button buttonB;
-    private Button buttonC;
-    private Button buttonD;
+    private Button buttonU;
+    private Button buttonRZ;
+    private Button buttonÓ;
+    private Button buttonŻ;
     private Handler handler;
     public TextView textWords;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,47 +27,121 @@ public class OrtoActivity extends AppCompatActivity implements Runnable{
         setContentView(R.layout.activity_orto);
         this.handler = new Handler();
         handler.post(this);
-    }
 
-   public void fallDownButtons()
-    {
         this.buttonH = (Button) findViewById(R.id.buttonH);
+        buttonH.setOnClickListener(this);
         this.buttonCH = (Button) findViewById(R.id.buttonCH);
-        this.buttonA = (Button) findViewById(R.id.buttonA);
-        this.buttonB = (Button) findViewById(R.id.buttonB);
-        this.buttonC = (Button) findViewById(R.id.buttonC);
-        this.buttonD = (Button) findViewById(R.id.buttonD);
+        buttonCH.setOnClickListener(this);
+        this.buttonU = (Button) findViewById(R.id.buttonU);
+        buttonU.setOnClickListener(this);
+        this.buttonRZ = (Button) findViewById(R.id.buttonRZ);
+        buttonRZ.setOnClickListener(this);
+        this.buttonÓ = (Button) findViewById(R.id.buttonÓ);
+        buttonÓ.setOnClickListener(this);
+        this.buttonŻ = (Button) findViewById(R.id.buttonŻ);
+        buttonŻ.setOnClickListener(this);
+        this.textWords = (TextView) findViewById(R.id.textWords);
 
-        buttonH.getY();
-        buttonH.setY(buttonH.getY() + 50);
-        buttonCH.getY();
-        buttonCH.setY(buttonCH.getY() + 30);
-        buttonA.getY();
-        buttonA.setY(buttonA.getY() + 50);
-        buttonB.getY();
-        buttonB.setY(buttonB.getY() + 30);
-        buttonC.getY();
-        buttonC.setY(buttonC.getY() + 30);
-        buttonD.getY();
-        buttonD.setY(buttonD.getY() + 30);
-        handler.postDelayed(this, 70);
-    }
-
-    public void randomWords()
-    {
-        for(int i=0; i<30; i++)
-        {
-            String[] array = getResources().getStringArray(R.array.words_base_orto);
-            String randomStr = array[new Random().nextInt(array.length)];
-            textWords.setText(randomStr);
-            handler.postDelayed(this, 25);
-        }
     }
 
     @Override
-    public void run() {
-        fallDownButtons();
-        randomWords();
+    public void onClick(View v) {
+
     }
+
+            //long t = System.currentTimeMillis();
+            // long end = t + 15000;
+
+    public void fallDownButtons() {
+
+        //int count = 0;
+
+        {
+            //for (int i = 0; i < 5; i++) {
+                buttonH.getY();
+                buttonH.setY(buttonH.getY() + 50);
+                buttonCH.getY();
+                buttonCH.setY(buttonCH.getY() + 30);
+                buttonU.getY();
+                buttonU.setY(buttonU.getY() + 50);
+                buttonRZ.getY();
+                buttonRZ.setY(buttonRZ.getY() + 30);
+                buttonÓ.getY();
+                buttonÓ.setY(buttonÓ.getY() + 30);
+                buttonŻ.getY();
+                buttonŻ.setY(buttonŻ.getY() + 30);
+
+            //}
+        }
+
+        //if (count++ < 5) {
+            handler.postDelayed(this, 120);
+        //}
+    }
+
+    public void iterationWord(View v) {
+        int i = 0;
+        int scoreP = 0;
+        int scoreN = 0;
+        long mainTime = System.currentTimeMillis();
+        long end = mainTime + 7500;
+        //View v= ;
+
+        while (System.currentTimeMillis() < end) {
+            long periodTime = System.currentTimeMillis();
+            long period = periodTime + 1500;
+
+                while (System.currentTimeMillis() < period) {
+                    switch(v.getId())
+                    {
+                        case R.id.buttonH :
+                            String[] letters = getResources().getStringArray(R.array.letters_base_orto);
+                            CharSequence e = letters[0];
+                            CharSequence buttonText = buttonH.getText();
+                            //buttonText.equals(e) = true;
+                            if (buttonText == e) {
+
+                            }
+                    }
+                }
+
+        }
+
+        //return scoreN;
+       // scoreP;
+       //buttonCheck(View v, int scoreP, int scoreN);
+    }
+
+    //public void buttonCheck(View v){
+
+
+    //}
+
+
+        /*for (int i=0; i<3; i++)
+        {
+            String[] array = getResources().getStringArray(R.array.words_base_orto);
+            textWords.setText(array[i]);
+        }*/
+
+
+
+    @Override
+    public void run() {
+        //randomWords();
+        iterationWord(v);
+        fallDownButtons();
+        }
 }
+
+
+    /*public void randomWords() {
+        for (int i = 0; i < 30; i++) {
+            String[] array = getResources().getStringArray(R.array.words_base_orto);
+            String randomStr = array[new Random().nextInt(array.length)];
+            textWords.setText(randomStr);
+            handler.postDelayed(this, 25000);
+        }
+    }*/
+
 

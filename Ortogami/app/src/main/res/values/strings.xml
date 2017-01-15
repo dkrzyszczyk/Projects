@@ -62,7 +62,17 @@
         na jej pierwszą, androidową apkę!\n
     </string>
     <string-array name="words_base_orto">
-        <item>błahostka</item>
-        <item>żołądź</item>
+        <item>BŁA__OSTKA</item>
+        <item>__OŁĄDŹ</item>
+        <item>Ż__ŁTY</item>
+        <item>CH__ĄSZCZ</item>
+        <item>RZECZ__ŁKA</item>
+    </string-array>
+    <string-array name="letters_base_orto">
+        <item>H</item>
+        <item>Ż</item>
+        <item>Ó</item>
+        <item>RZ</item>
+        <item>U</item>
     </string-array>
 </resources>
