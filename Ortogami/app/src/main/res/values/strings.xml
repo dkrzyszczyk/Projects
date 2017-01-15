@@ -75,4 +75,45 @@
         <item>RZ</item>
         <item>U</item>
     </string-array>
+    <string-array name="words_base_orto_hard">
+        <item>BŁA__OSTKA</item>
+        <item>__OŁĄDŹ</item>
+        <item>Ż__ŁTY</item>
+        <item>CH__ĄSZCZ</item>
+        <item>RZECZ__ŁKA</item>
+        <item>BŁA__OSTKA</item>
+        <item>__OŁĄDŹ</item>
+        <item>Ż__ŁTY</item>
+        <item>CH__ĄSZCZ</item>
+        <item>RZECZ__ŁKA</item>
+    </string-array>
+    <string-array name="words_base_orto_grami">
+        <item>BŁA__OSTKA</item>
+        <item>__OŁĄDŹ</item>
+        <item>Ż__ŁTY</item>
+        <item>CH__ĄSZCZ</item>
+        <item>RZECZ__ŁKA</item>
+        <item>BŁA__OSTKA</item>
+        <item>__OŁĄDŹ</item>
+        <item>Ż__ŁTY</item>
+        <item>CH__ĄSZCZ</item>
+        <item>RZECZ__ŁKA</item>
+    </string-array>
+    <string-array name="words_base_orto_grami_hard">
+        <item>BŁA__OSTKA</item>
+        <item>__OŁĄDŹ</item>
+        <item>Ż__ŁTY</item>
+        <item>CH__ĄSZCZ</item>
+        <item>RZECZ__ŁKA</item>
+        <item>BŁA__OSTKA</item>
+        <item>__OŁĄDŹ</item>
+        <item>Ż__ŁTY</item>
+        <item>CH__ĄSZCZ</item>
+        <item>RZECZ__ŁKA</item>
+        <item>BŁA__OSTKA</item>
+        <item>__OŁĄDŹ</item>
+        <item>Ż__ŁTY</item>
+        <item>CH__ĄSZCZ</item>
+        <item>RZECZ__ŁKA</item>
+    </string-array>
 </resources>

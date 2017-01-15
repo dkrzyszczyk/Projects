@@ -26,9 +26,11 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private Runnable countTimeRunnable;
 
     private  TextView textWords;
+    private TextView textScoreP;
+    private TextView textScoreN;
 
     private int i;
-    private boolean answer = false;
+    boolean answer = false;
     private int height;
 
     @Override
@@ -62,6 +64,8 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         this.buttonŻ = (Button) findViewById(R.id.buttonŻ);
         buttonŻ.setOnClickListener(this);
         this.textWords = (TextView) findViewById(R.id.textWords);
+        this.textScoreP = (TextView) findViewById(R.id.textScoreP);
+        this.textScoreN = (TextView) findViewById(R.id.textScoreN);
     }
 
     private class FallDownButtonsRunnable implements Runnable {
@@ -81,8 +85,6 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
             countTime();
         }
     }
-
-
 
     public void fallDownButtons() {
 
@@ -124,30 +126,25 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    //wyswietlanie konkretnego wyrazu n sekund
-    //podstawowy 5 wyrazow, 15sek
-    //zaawandowany 15 wyrazow, 10sek
     public void countTime() {
 
         //TODO: dodaj jeszcze to sprawdzanie odpowiedzi.
         //masz tylko 5 elementów w tablicy, zatem żeby nie crashowało aplikacji
         //jak wszystkie zostaną przetworzone, to wtedy zaczyna się od nowa
-        if(i == 4){
+        /*if(i == 4){
             i = 0;
+        }*/
+
+        if (!answer) {
+            String[] array = getResources().getStringArray(R.array.words_base_orto);
+            textWords.setText(array[i]);
+            Log.d(TAG, "countTime: " + array[i]);
         }
-
-        String[] array = getResources().getStringArray(R.array.words_base_orto);
-        textWords.setText(array[i]);
-        Log.d(TAG, "countTime: " + array[i]);
-
+        else
         i++;
-        //TODO: ustaw poniżej sobie wywoływanie co 15000
-        //dalam 10x mniej do celów testowych
-        countDownHandler.postDelayed(countTimeRunnable, 1500);
 
-//            answer=false;
-//        }
-
+        countDownHandler.postDelayed(countTimeRunnable, 15000);
+        answer=false;
 
         //dopisac poziom zaawansowany uzalezniony od liczby uzyskanych punktow
     }
@@ -162,6 +159,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                 if (buttonH.getText() == letters[i]) {
                     scoreP++;
                     answer = true;
+                    System.out.println("DUPADUPA DUPA DUPA");
                 } else
                     scoreN++;
             case R.id.buttonCH:
@@ -195,54 +193,11 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                 } else
                     scoreN++;
         }
+        if(answer==true) {
+            textScoreP.setText(scoreP + " PUNKTÓW");
+        }
     }
 }
-
-    /*public void iterationWord(View v) {
-        int i = 0;
-        int scoreP = 0;
-        int scoreN = 0;
-        long mainTime = System.currentTimeMillis();
-        long end = mainTime + 7500;
-        //View v= ;
-
-        while (System.currentTimeMillis() < end) {
-            long periodTime = System.currentTimeMillis();
-            long period = periodTime + 1500;
-
-                while (System.currentTimeMillis() < period) {
-                    switch(v.getId())
-                    {
-                        case R.id.buttonH :
-                            String[] letters = getResources().getStringArray(R.array.letters_base_orto);
-                            CharSequence e = letters[0];
-                            CharSequence buttonText = buttonH.getText();
-                            //buttonText.equals(e) = true;
-                            if (buttonText == e) {
-
-                            }
-                    }
-                }
-
-        }*/
-
-//return scoreN;
-// scoreP;
-//buttonCheck(View v, int scoreP, int scoreN);
-
-
-//public void buttonCheck(View v){
-
-
-//}
-
-
-        /*for (int i=0; i<3; i++)
-        {
-            String[] array = getResources().getStringArray(R.array.words_base_orto);
-            textWords.setText(array[i]);
-        }*/
-
 
     /*public void randomWords() {
         for (int i = 0; i < 30; i++) {
