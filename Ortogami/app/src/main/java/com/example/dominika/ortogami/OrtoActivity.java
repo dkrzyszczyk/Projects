@@ -34,6 +34,9 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private int height;
     private int scoreP = 0;
     private int scoreN = 0;
+    int level=0;
+    String [] array;
+    String[] letters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,15 +129,21 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
     public void countTime() {
 
-        //TODO: dodaj jeszcze to sprawdzanie odpowiedzi.
-        //masz tylko 5 elementów w tablicy, zatem żeby nie crashowało aplikacji
-        //jak wszystkie zostaną przetworzone, to wtedy zaczyna się od nowa
-        /*if(i == 4){
-            i = 0;
-        }*/
+        switch (level)
+        {
+            case 0:
+                array = getResources().getStringArray(R.array.words_base_orto);
+                letters = getResources().getStringArray(R.array.letters_base_orto);
+                break;
+
+            case 1:
+                array = getResources().getStringArray(R.array.words_base_orto_hard);
+                letters = getResources().getStringArray(R.array.letters_base_orto);
+                break;
+        }
 
         if (!answer) {
-            String[] array = getResources().getStringArray(R.array.words_base_orto);
+//            String[] array = getResources().getStringArray(R.array.words_base_orto);
             textWords.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
         }
@@ -149,7 +158,6 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        String[] letters = getResources().getStringArray(R.array.letters_base_orto);
         Log.d(TAG, "onClick: letter[i]=" + letters[i]);
         switch (view.getId()) {
             case R.id.buttonH:
@@ -197,14 +205,34 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
+        switch (level)
+        {
+            case 0:
+                array = getResources().getStringArray(R.array.words_base_orto);
+                letters = getResources().getStringArray(R.array.letters_base_orto);
+                break;
+
+            case 1:
+                array = getResources().getStringArray(R.array.words_base_orto_hard);
+                letters = getResources().getStringArray(R.array.letters_base_orto_hard);
+                break;
+        }
+
         if (answer == true) {
             i++;
-            String[] array = getResources().getStringArray(R.array.words_base_orto);
+//            String[] array = getResources().getStringArray(R.array.words_base_orto);
             textWords.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
             textScoreP.setText(scoreP + " PUNKTÓW");
         } else
             textScoreN.setText(scoreN + " BLĘDÓW");
+
+        if(scoreP >= 4 && scoreN <= 1){
+            level = 1;
+            array = getResources().getStringArray(R.array.words_base_orto_hard);
+            textWords.setText(array[i]);
+            Log.d(TAG, "countTime: " + array[i]);
+        }
 
         }
 }

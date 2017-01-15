@@ -76,16 +76,28 @@
         <item>U</item>
     </string-array>
     <string-array name="words_base_orto_hard">
-        <item>BŁA__OSTKA</item>
-        <item>__OŁĄDŹ</item>
-        <item>Ż__ŁTY</item>
-        <item>CH__ĄSZCZ</item>
-        <item>RZECZ__ŁKA</item>
-        <item>BŁA__OSTKA</item>
-        <item>__OŁĄDŹ</item>
-        <item>Ż__ŁTY</item>
-        <item>CH__ĄSZCZ</item>
-        <item>RZECZ__ŁKA</item>
+        <item>__AOS</item>
+        <item>RY__AWY</item>
+        <item>OB__YNEK</item>
+        <item>PO__YBEL</item>
+        <item>Ł__J</item>
+        <item>T__EĆ</item>
+        <item>SERW__S</item>
+        <item>B__R</item>
+        <item>JE__YNA</item>
+        <item>MŁ__CIĆ</item>
+    </string-array>
+    <string-array name="letters_base_orto_hard">
+        <item>CH</item>
+        <item>Ż</item>
+        <item>RZ</item>
+        <item>H</item>
+        <item>Ó</item>
+        <item>RZ</item>
+        <item>U</item>
+        <item>Ó</item>
+        <item>Ż</item>
+        <item>Ó</item>
     </string-array>
     <string-array name="words_base_orto_grami">
         <item>BŁA__OSTKA</item>
