@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.DisplayMetrics;
 
 public class OrtoActivity extends AppCompatActivity implements Runnable, View.OnClickListener{
 
@@ -19,7 +20,8 @@ public class OrtoActivity extends AppCompatActivity implements Runnable, View.On
     private Button buttonŻ;
     private Handler handler;
     public TextView textWords;
-
+    int i;
+    boolean answer=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,42 +46,140 @@ public class OrtoActivity extends AppCompatActivity implements Runnable, View.On
 
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
-
-            //long t = System.currentTimeMillis();
-            // long end = t + 15000;
-
     public void fallDownButtons() {
 
-        //int count = 0;
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
 
+        if (buttonH.getY() > height)
         {
-            //for (int i = 0; i < 5; i++) {
-                buttonH.getY();
-                buttonH.setY(buttonH.getY() + 50);
-                buttonCH.getY();
-                buttonCH.setY(buttonCH.getY() + 30);
-                buttonU.getY();
-                buttonU.setY(buttonU.getY() + 50);
-                buttonRZ.getY();
-                buttonRZ.setY(buttonRZ.getY() + 30);
-                buttonÓ.getY();
-                buttonÓ.setY(buttonÓ.getY() + 30);
-                buttonŻ.getY();
-                buttonŻ.setY(buttonŻ.getY() + 30);
-
-            //}
+            buttonH.setY(0);
+        }
+        if (buttonCH.getY() > height)
+        {
+            buttonCH.setY(0);
+        }
+        if (buttonÓ.getY() > height)
+        {
+            buttonÓ.setY(0);
+        }
+        if (buttonU.getY() > height)
+        {
+            buttonU.setY(0);
+        }
+        if (buttonRZ.getY() > height)
+        {
+            buttonRZ.setY(0);
+        }
+        if (buttonŻ.getY() > height)
+        {
+            buttonŻ.setY(0);
         }
 
-        //if (count++ < 5) {
-            handler.postDelayed(this, 120);
-        //}
+        buttonH.getY();
+        buttonH.setY(buttonH.getY() + 50);
+        buttonCH.getY();
+        buttonCH.setY(buttonCH.getY() + 30);
+        buttonU.getY();
+        buttonU.setY(buttonU.getY() + 50);
+        buttonRZ.getY();
+        buttonRZ.setY(buttonRZ.getY() + 30);
+        buttonÓ.getY();
+        buttonÓ.setY(buttonÓ.getY() + 30);
+        buttonŻ.getY();
+        buttonŻ.setY(buttonŻ.getY() + 30);
+
+        handler.postDelayed(this, 120);
+
     }
 
-    public void iterationWord(View v) {
+    //wyswietlanie konkretnego wyrazu n sekund
+    //podstawowy 5 wyrazow, 15sek
+    //zaawandowany 15 wyrazow, 10sek
+    public void countTime() {
+        long screenTimeBasicLevel = System.currentTimeMillis();
+        long screenBasic = screenTimeBasicLevel + 15000;
+        long screenTimeHardLevel = System.currentTimeMillis();
+        long screenHard = screenTimeHardLevel + 10000;
+
+        //poziom podstawowy, 5 iteracji po 15 sek.
+        for(int j=0; j<5; j++)
+        {
+            while (System.currentTimeMillis() < screenBasic && answer==false)
+            {
+                String[] array = getResources().getStringArray(R.array.words_base_orto);
+                textWords.setText(array[i]);
+            }
+            i++;
+            screenBasic = screenBasic + 15000;
+            answer=false;
+        }
+
+        //dopisac poziom zaawansowany uzalezniony od liczby uzyskanych punktow
+    }
+
+    @Override
+    public void onClick(View view) {
+        int scoreP=0;
+        int scoreN=0;
+        String[] letters = getResources().getStringArray(R.array.letters_base_orto);
+        switch (view.getId()) {
+            case R.id.buttonH:
+                if (buttonH.getText() == letters[i]) {
+                    scoreP++;
+                    answer=true;
+                }
+                else
+                    scoreN++;
+            case R.id.buttonCH:
+                if (buttonCH.getText() == letters[i]) {
+                    scoreP++;
+                    answer=true;
+                }
+                else
+                    scoreN++;
+            case R.id.buttonÓ:
+                if (buttonÓ.getText() == letters[i]) {
+                    scoreP++;
+                    answer=true;
+                }
+                else
+                    scoreN++;
+            case R.id.buttonU:
+                if (buttonU.getText() == letters[i]) {
+                    scoreP++;
+                    answer=true;
+                }
+                else
+                    scoreN++;
+            case R.id.buttonRZ:
+                if (buttonRZ.getText() == letters[i]) {
+                    scoreP++;
+                    answer=true;
+                }
+                else
+                    scoreN++;
+            case R.id.buttonŻ:
+                if (buttonŻ.getText() == letters[i]) {
+                    scoreP++;
+                    answer=true;
+                }
+                else
+                    scoreN++;
+        }
+    }
+
+    @Override
+    public void run() {
+        //randomWords();
+        //iterationWord();
+        fallDownButtons();
+        countTime();
+    }
+}
+
+    /*public void iterationWord(View v) {
         int i = 0;
         int scoreP = 0;
         int scoreN = 0;
@@ -105,12 +205,12 @@ public class OrtoActivity extends AppCompatActivity implements Runnable, View.On
                     }
                 }
 
-        }
+        }*/
 
         //return scoreN;
        // scoreP;
        //buttonCheck(View v, int scoreP, int scoreN);
-    }
+
 
     //public void buttonCheck(View v){
 
@@ -123,16 +223,6 @@ public class OrtoActivity extends AppCompatActivity implements Runnable, View.On
             String[] array = getResources().getStringArray(R.array.words_base_orto);
             textWords.setText(array[i]);
         }*/
-
-
-
-    @Override
-    public void run() {
-        //randomWords();
-        iterationWord(v);
-        fallDownButtons();
-        }
-}
 
 
     /*public void randomWords() {
