@@ -30,7 +30,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textScoreN;
 
     private int i;
-    boolean answer = false;
+    boolean answer;
     private int height;
     private int scoreP = 0;
     private int scoreN = 0;
@@ -142,16 +142,15 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-        if (!answer) {
+//        if (!answer) {
 //            String[] array = getResources().getStringArray(R.array.words_base_orto);
             textWords.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
-        }
-        else
+//        }
+//        else
         i++;
 
         countDownHandler.postDelayed(countTimeRunnable, 15000);
-        answer=false;
 
         //dopisac poziom zaawansowany uzalezniony od liczby uzyskanych punktow
     }
@@ -166,6 +165,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     answer = true;
                     Log.d(TAG, "onClick: ");
                 } else
+                    answer = false;
                     scoreN++;
                 break;
             case R.id.buttonCH:
@@ -173,6 +173,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     scoreP++;
                     answer = true;
                 } else
+                    answer = false;
                     scoreN++;
                 break;
             case R.id.buttonÓ:
@@ -180,6 +181,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     scoreP++;
                     answer = true;
                 } else
+                    answer = false;
                     scoreN++;
                 break;
             case R.id.buttonU:
@@ -187,6 +189,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     scoreP++;
                     answer = true;
                 } else
+                    answer = false;
                     scoreN++;
                 break;
             case R.id.buttonRZ:
@@ -194,6 +197,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     scoreP++;
                     answer = true;
                 } else
+                    answer = false;
                     scoreN++;
                 break;
             case R.id.buttonŻ:
@@ -201,6 +205,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     scoreP++;
                     answer = true;
                 } else
+                    answer = false;
                     scoreN++;
                 break;
         }
@@ -220,14 +225,19 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
         if (answer == true) {
             i++;
-//            String[] array = getResources().getStringArray(R.array.words_base_orto);
             textWords.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
             textScoreP.setText(scoreP + " PUNKTÓW");
         } else
             textScoreN.setText(scoreN + " BLĘDÓW");
 
-        if(scoreP >= 4 && scoreN <= 1){
+        if(scoreP == 4 && scoreN <= 1){
+            i = 0;
+            level = 1;
+            array = getResources().getStringArray(R.array.words_base_orto_hard);
+            textWords.setText(array[i]);
+            Log.d(TAG, "countTime: " + array[i]);
+        }else if(scoreP > 4 && scoreN <= 1){
             level = 1;
             array = getResources().getStringArray(R.array.words_base_orto_hard);
             textWords.setText(array[i]);
