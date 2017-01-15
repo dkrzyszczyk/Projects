@@ -32,6 +32,8 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private int i;
     boolean answer = false;
     private int height;
+    private int scoreP = 0;
+    private int scoreN = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,8 +149,6 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        int scoreP = 0;
-        int scoreN = 0;
         String[] letters = getResources().getStringArray(R.array.letters_base_orto);
         Log.d(TAG, "onClick: letter[i]=" + letters[i]);
         switch (view.getId()) {
@@ -159,41 +159,54 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     Log.d(TAG, "onClick: ");
                 } else
                     scoreN++;
+                break;
             case R.id.buttonCH:
                 if (buttonCH.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
+                break;
             case R.id.buttonÓ:
                 if (buttonÓ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
+                break;
             case R.id.buttonU:
                 if (buttonU.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
+                break;
             case R.id.buttonRZ:
                 if (buttonRZ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
+                break;
             case R.id.buttonŻ:
                 if (buttonŻ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
+                break;
         }
-        if(answer==true) {
+
+        if (answer == true) {
+            i++;
+            String[] array = getResources().getStringArray(R.array.words_base_orto);
+            textWords.setText(array[i]);
+            Log.d(TAG, "countTime: " + array[i]);
             textScoreP.setText(scoreP + " PUNKTÓW");
+        } else
+            textScoreN.setText(scoreN + " BLĘDÓW");
+
         }
-    }
 }
 
     /*public void randomWords() {
