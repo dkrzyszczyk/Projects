@@ -72,7 +72,6 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void run() {
-            Log.d(TAG, "run: ");
             fallDownButtons();
         }
     }
@@ -81,7 +80,6 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void run() {
-            Log.d(TAG, "run: ");
             countTime();
         }
     }
@@ -122,8 +120,6 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
         fallDownButonsHandler.postDelayed(fallDownButtonsRunnable, 120);
 
-        Log.d(TAG, "fallDownButtons: " + System.currentTimeMillis());
-
     }
 
     public void countTime() {
@@ -154,40 +150,41 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         int scoreP = 0;
         int scoreN = 0;
         String[] letters = getResources().getStringArray(R.array.letters_base_orto);
+        Log.d(TAG, "onClick: letter[i]=" + letters[i]);
         switch (view.getId()) {
             case R.id.buttonH:
-                if (buttonH.getText() == letters[i]) {
+                if (buttonH.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
-                    System.out.println("DUPADUPA DUPA DUPA");
+                    Log.d(TAG, "onClick: ");
                 } else
                     scoreN++;
             case R.id.buttonCH:
-                if (buttonCH.getText() == letters[i]) {
+                if (buttonCH.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
             case R.id.buttonÓ:
-                if (buttonÓ.getText() == letters[i]) {
+                if (buttonÓ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
             case R.id.buttonU:
-                if (buttonU.getText() == letters[i]) {
+                if (buttonU.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
             case R.id.buttonRZ:
-                if (buttonRZ.getText() == letters[i]) {
+                if (buttonRZ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
                     scoreN++;
             case R.id.buttonŻ:
-                if (buttonŻ.getText() == letters[i]) {
+                if (buttonŻ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
                 } else
