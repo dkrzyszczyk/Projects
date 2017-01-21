@@ -24,12 +24,12 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
     private Button buttonRZ;
     private Button buttonŻ;
 
-    private Handler fallDownButonsHandler;
+    private Handler fallDownButtonsHandler;
     private Handler countDownHandler;
     private Runnable fallDownButtonsRunnable;
     private Runnable countTimeRunnable;
 
-    private  TextView textWordsOG;
+    private TextView textWordsOG;
     private TextView textScorePOG;
     private TextView textScoreNOG;
 
@@ -47,9 +47,9 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orto_grami);
 
-        fallDownButonsHandler = new Handler();
+        fallDownButtonsHandler = new Handler();
         fallDownButtonsRunnable = new FallDownButtonsRunnable();
-        fallDownButonsHandler.post(fallDownButtonsRunnable);
+        fallDownButtonsHandler.post(fallDownButtonsRunnable);
 
         countDownHandler = new Handler();
         countTimeRunnable = new CountTimeRunnable();
@@ -155,8 +155,7 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         buttonŻ.getY();
         buttonŻ.setY(buttonŻ.getY() + 40);
 
-        fallDownButonsHandler.postDelayed(fallDownButtonsRunnable, 120);
-
+        fallDownButtonsHandler.postDelayed(fallDownButtonsRunnable, 120);
         Log.d(TAG, "fallDownButtons: " + System.currentTimeMillis());
 
     }
@@ -175,16 +174,13 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
 
-        if(!answer) {
-//            String[] array = getResources().getStringArray(R.array.words_base_orto);
+        if (!answer) {
             textWordsOG.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
         }
-        else
-            i++;
 
         countDownHandler.postDelayed(countTimeRunnable, 15000);
-        }
+    }
 
     @Override
     public void onClick(View view) {
@@ -282,6 +278,22 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
 
+        if (scorePOG == 9 && scoreNOG == 1 || scorePOG == 10 && scoreNOG == 0) {
+            i = 0;
+            level = 1;
+            array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
+            textWordsOG.setText(array[i]);
+            Log.d(TAG, "countTime: " + array[i]);
+        } else if (level == 0) {
+            i++;
+            array = getResources().getStringArray(R.array.words_base_orto_grami);
+            textWordsOG.setText(array[i]);
+        } else if (level == 1) {
+            i++;
+            array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
+            textWordsOG.setText(array[i]);
+        }
+
         switch (level) {
             case 0:
                 array = getResources().getStringArray(R.array.words_base_orto_grami);
@@ -295,24 +307,11 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         }
 
         if (answer == true) {
-            i++;
             textWordsOG.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
             textScorePOG.setText(scorePOG + " PUNKTÓW");
-        } else
+        } else {
             textScoreNOG.setText(scoreNOG + " BŁĘDÓW");
-
-        if (scorePOG == 4 && scoreNOG <= 1) {
-            i = 0;
-            level = 1;
-            array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
-            textWordsOG.setText(array[i]);
-            Log.d(TAG, "countTime: " + array[i]);
-        } else if (scorePOG > 4 && scoreNOG <= 1) {
-            level = 1;
-            array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
-            textWordsOG.setText(array[i]);
-            Log.d(TAG, "countTime: " + array[i]);
         }
     }
 }

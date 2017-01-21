@@ -157,4 +157,11 @@
         <item>H</item>
         <item>CH</item>
     </string-array>
+    <integer-array name="ranking">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
 </resources>

@@ -20,7 +20,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonÓ;
     private Button buttonŻ;
 
-    private Handler fallDownButonsHandler;
+    private Handler fallDownButtonsHandler;
     private Handler countDownHandler;
     private Runnable fallDownButtonsRunnable;
     private Runnable countTimeRunnable;
@@ -28,6 +28,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textWords;
     private TextView textScoreP;
     private TextView textScoreN;
+    private TextView textLevel;
 
     private int i;
     boolean answer;
@@ -37,15 +38,16 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     int level = 0;
     String[] array;
     String[] letters;
+    Integer[] ranking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orto);
 
-        fallDownButonsHandler = new Handler();
+        fallDownButtonsHandler = new Handler();
         fallDownButtonsRunnable = new FallDownButtonsRunnable();
-        fallDownButonsHandler.post(fallDownButtonsRunnable);
+        fallDownButtonsHandler.post(fallDownButtonsRunnable);
 
         countDownHandler = new Handler();
         countTimeRunnable = new CountTimeRunnable();
@@ -71,6 +73,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         this.textWords = (TextView) findViewById(R.id.textWords);
         this.textScoreP = (TextView) findViewById(R.id.textScoreP);
         this.textScoreN = (TextView) findViewById(R.id.textScoreN);
+        this.textLevel = (TextView) findViewById(R.id.textLevel);
     }
 
     private class FallDownButtonsRunnable implements Runnable {
@@ -123,7 +126,8 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         buttonŻ.getY();
         buttonŻ.setY(buttonŻ.getY() + 30);
 
-        fallDownButonsHandler.postDelayed(fallDownButtonsRunnable, 120);
+        fallDownButtonsHandler.postDelayed(fallDownButtonsRunnable, 120);
+        Log.d(TAG, "fallDownButtons: " + System.currentTimeMillis());
 
     }
 
@@ -137,7 +141,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
             case 1:
                 array = getResources().getStringArray(R.array.words_base_orto_hard);
-                letters = getResources().getStringArray(R.array.letters_base_orto);
+                letters = getResources().getStringArray(R.array.letters_base_orto_hard);
                 break;
         }
 
@@ -211,16 +215,17 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (scoreP == 4 && scoreN == 1 || scoreP == 5 && scoreN == 0) {
+            textLevel.setText("POZIOM ZAAWANSOWANY");
             i = 0;
             level = 1;
             array = getResources().getStringArray(R.array.words_base_orto_hard);
             textWords.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
-        } else if (level == 0){
+        } else if (level == 0) {
             i++;
             array = getResources().getStringArray(R.array.words_base_orto);
             textWords.setText(array[i]);
-        } else if(level == 1){
+        } else if (level == 1) {
             i++;
             array = getResources().getStringArray(R.array.words_base_orto_hard);
             textWords.setText(array[i]);
@@ -247,6 +252,41 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
+    /*if (i == 10)
+    {
+        int r;
+        r = scoreP-scoreN;
+        if (ranking[2] < r){
+            if (ranking[1] < r) {
+                if (ranking[0] < r){
+                    ranking[4] = ranking[3];
+                    ranking[3] = ranking[2];
+                    ranking[2] = ranking[1];
+                    ranking[1] = ranking[0];
+                    ranking[0] = r;
+                } else {
+                    ranking[4] = ranking[3];
+                    ranking[3] = ranking[2];
+                    ranking[2] = ranking[1];
+                    ranking[1] = r;
+                }
+            } else {
+                ranking[4] = ranking[3];
+                ranking[3] = ranking[2];
+                ranking[2] = r;
+            }
+        } else {
+            if (r > ranking[3]){
+                ranking[4] = ranking[3];
+                ranking[3] = r;
+            } else {
+                if (ranking[4] < r) {
+                    ranking[4] = r;
+                }
+            }
+        }
+    }*/
+
 
 
 
