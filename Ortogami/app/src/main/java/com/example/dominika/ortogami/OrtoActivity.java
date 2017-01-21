@@ -25,7 +25,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private Runnable fallDownButtonsRunnable;
     private Runnable countTimeRunnable;
 
-    private  TextView textWords;
+    private TextView textWords;
     private TextView textScoreP;
     private TextView textScoreN;
 
@@ -34,8 +34,8 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private int height;
     private int scoreP = 0;
     private int scoreN = 0;
-    int level=0;
-    String [] array;
+    int level = 0;
+    String[] array;
     String[] letters;
 
     @Override
@@ -129,8 +129,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
 
     public void countTime() {
 
-        switch (level)
-        {
+        switch (level) {
             case 0:
                 array = getResources().getStringArray(R.array.words_base_orto);
                 letters = getResources().getStringArray(R.array.letters_base_orto);
@@ -142,17 +141,15 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-//        if (!answer) {
+     if(!answer) {
 //            String[] array = getResources().getStringArray(R.array.words_base_orto);
-            textWords.setText(array[i]);
-            Log.d(TAG, "countTime: " + array[i]);
-//        }
-//        else
+        textWords.setText(array[i]);
+        Log.d(TAG, "countTime: " + array[i]);
+       }
+        else
         i++;
 
         countDownHandler.postDelayed(countTimeRunnable, 15000);
-
-        //dopisac poziom zaawansowany uzalezniony od liczby uzyskanych punktow
     }
 
     @Override
@@ -164,54 +161,59 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     scoreP++;
                     answer = true;
                     Log.d(TAG, "onClick: ");
-                } else
+                } else {
                     answer = false;
                     scoreN++;
+                }
                 break;
             case R.id.buttonCH:
                 if (buttonCH.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
-                } else
+                } else {
                     answer = false;
                     scoreN++;
+                }
                 break;
             case R.id.buttonÓ:
                 if (buttonÓ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
-                } else
+                } else {
                     answer = false;
                     scoreN++;
+                }
                 break;
             case R.id.buttonU:
                 if (buttonU.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
-                } else
+                } else {
                     answer = false;
                     scoreN++;
+                }
                 break;
             case R.id.buttonRZ:
                 if (buttonRZ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
-                } else
+                } else {
                     answer = false;
                     scoreN++;
+                }
                 break;
             case R.id.buttonŻ:
                 if (buttonŻ.getText().toString().equals(letters[i])) {
                     scoreP++;
                     answer = true;
-                } else
+                } else {
                     answer = false;
                     scoreN++;
+                }
                 break;
         }
 
-        switch (level)
-        {
+        switch (level) {
             case 0:
                 array = getResources().getStringArray(R.array.words_base_orto);
                 letters = getResources().getStringArray(R.array.letters_base_orto);
@@ -229,22 +231,22 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
             Log.d(TAG, "countTime: " + array[i]);
             textScoreP.setText(scoreP + " PUNKTÓW");
         } else
-            textScoreN.setText(scoreN + " BLĘDÓW");
+            textScoreN.setText(scoreN + " BŁĘDÓW");
 
-        if(scoreP == 4 && scoreN <= 1){
+        if (scoreP == 4 && scoreN <= 1) {
             i = 0;
             level = 1;
             array = getResources().getStringArray(R.array.words_base_orto_hard);
             textWords.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
-        }else if(scoreP > 4 && scoreN <= 1){
+        } else if (scoreP > 4 && scoreN <= 1) {
             level = 1;
             array = getResources().getStringArray(R.array.words_base_orto_hard);
             textWords.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
         }
 
-        }
+    }
 }
 
     /*public void randomWords() {

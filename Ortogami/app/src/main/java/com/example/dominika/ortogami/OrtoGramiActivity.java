@@ -20,7 +20,7 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
     private Button buttonĘ;
     private Button buttonEN;
     private Button buttonĄ;
-    private Button buttonOM;
+    private Button buttonON;
 
     private Handler fallDownButonsHandler;
     private Handler countDownHandler;
@@ -34,6 +34,11 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
     private int i;
     boolean answer = false;
     private int height;
+    private int scorePOG = 0;
+    private int scoreNOG = 0;
+    int level = 0;
+    String[] array;
+    String[] letters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +72,8 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         buttonEN.setOnClickListener(this);
         this.buttonĄ = (Button) findViewById(R.id.buttonĄ);
         buttonĄ.setOnClickListener(this);
-        this.buttonOM = (Button) findViewById(R.id.buttonOM);
-        buttonOM.setOnClickListener(this);
+        this.buttonON = (Button) findViewById(R.id.buttonON);
+        buttonON.setOnClickListener(this);
         this.textWordsOG = (TextView) findViewById(R.id.textWordsOG);
         this.textScorePOG = (TextView) findViewById(R.id.textScorePOG);
         this.textScoreNOG = (TextView) findViewById(R.id.textScoreNOG);
@@ -78,7 +83,6 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
 
         @Override
         public void run() {
-            Log.d(TAG, "run: ");
             fallDownButtons();
         }
     }
@@ -87,7 +91,6 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
 
         @Override
         public void run() {
-            Log.d(TAG, "run: ");
             countTime();
         }
     }
@@ -115,8 +118,8 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         if (buttonĄ.getY() > height) {
             buttonĄ.setY(0);
         }
-        if (buttonOM.getY() > height) {
-            buttonOM.setY(0);
+        if (buttonON.getY() > height) {
+            buttonON.setY(0);
         }
 
         buttonH.getY();
@@ -133,8 +136,8 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         buttonEN.setY(buttonEN.getY() + 50);
         buttonĄ.getY();
         buttonĄ.setY(buttonĄ.getY() + 30);
-        buttonOM.getY();
-        buttonOM.setY(buttonOM.getY() + 50);
+        buttonON.getY();
+        buttonON.setY(buttonON.getY() + 50);
 
         fallDownButonsHandler.postDelayed(fallDownButtonsRunnable, 120);
 
@@ -144,84 +147,138 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
 
     public void countTime() {
 
-        //TODO: dodaj jeszcze to sprawdzanie odpowiedzi.
-        //masz tylko 5 elementów w tablicy, zatem żeby nie crashowało aplikacji
-        //jak wszystkie zostaną przetworzone, to wtedy zaczyna się od nowa
-        if(i == 4){
-            i = 0;
+        switch (level) {
+            case 0:
+                array = getResources().getStringArray(R.array.words_base_orto_grami);
+                letters = getResources().getStringArray(R.array.letters_base_orto_grami);
+                break;
+
+            case 1:
+                array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
+                letters = getResources().getStringArray(R.array.letters_base_orto_grami_hard);
+                break;
         }
 
-            String[] array = getResources().getStringArray(R.array.words_base_orto);
+        if(!answer) {
+//            String[] array = getResources().getStringArray(R.array.words_base_orto);
             textWordsOG.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
-
+        }
+        else
             i++;
 
         countDownHandler.postDelayed(countTimeRunnable, 15000);
-        answer=false;
-
-        //dopisac poziom zaawansowany uzalezniony od liczby uzyskanych punktow
-    }
+        }
 
     @Override
     public void onClick(View view) {
-        int scoreP = 0;
-        int scoreN = 0;
-        String[] letters = getResources().getStringArray(R.array.letters_base_orto);
+        Log.d(TAG, "onClick: letter[i]=" + letters[i]);
         switch (view.getId()) {
             case R.id.buttonH:
-                if (buttonH.getText() == letters[i]) {
-                    scoreP++;
+                if (buttonH.getText().toString().equals(letters[i])) {
+                    scorePOG++;
                     answer = true;
-                    System.out.println("DUPADUPA DUPA DUPA");
-                } else
-                    scoreN++;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
             case R.id.buttonCH:
-                if (buttonCH.getText() == letters[i]) {
-                    scoreP++;
+                if (buttonCH.getText().toString().equals(letters[i])) {
+                    scorePOG++;
                     answer = true;
-                } else
-                    scoreN++;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
             case R.id.buttonÓ:
-                if (buttonÓ.getText() == letters[i]) {
-                    scoreP++;
+                if (buttonÓ.getText().toString().equals(letters[i])) {
+                    scorePOG++;
                     answer = true;
-                } else
-                    scoreN++;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
             case R.id.buttonU:
-                if (buttonU.getText() == letters[i]) {
-                    scoreP++;
+                if (buttonU.getText().toString().equals(letters[i])) {
+                    scorePOG++;
                     answer = true;
-                } else
-                    scoreN++;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
             case R.id.buttonĘ:
-                if (buttonĘ.getText() == letters[i]) {
-                    scoreP++;
+                if (buttonĘ.getText().toString().equals(letters[i])) {
+                    scorePOG++;
                     answer = true;
-                } else
-                    scoreN++;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
             case R.id.buttonEN:
-                if (buttonEN.getText() == letters[i]) {
-                    scoreP++;
+                if (buttonEN.getText().toString().equals(letters[i])) {
+                    scorePOG++;
                     answer = true;
-                } else
-                    scoreN++;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
             case R.id.buttonĄ:
-                if (buttonĄ.getText() == letters[i]) {
-                    scoreP++;
+                if (buttonĄ.getText().toString().equals(letters[i])) {
+                    scorePOG++;
                     answer = true;
-                } else
-                    scoreN++;
-            case R.id.buttonOM:
-                if (buttonOM.getText() == letters[i]) {
-                    scoreP++;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
+            case R.id.buttonON:
+                if (buttonON.getText().toString().equals(letters[i])) {
+                    scorePOG++;
                     answer = true;
-                } else
-                    scoreN++;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
         }
-            //textScorePOG.setText(scoreP + " PUNKTÓW");
 
+        switch (level) {
+            case 0:
+                array = getResources().getStringArray(R.array.words_base_orto_grami);
+                letters = getResources().getStringArray(R.array.letters_base_orto_grami);
+                break;
 
+            case 1:
+                array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
+                letters = getResources().getStringArray(R.array.letters_base_orto_grami_hard);
+                break;
+        }
+
+        if (answer == true) {
+            i++;
+            textWordsOG.setText(array[i]);
+            Log.d(TAG, "countTime: " + array[i]);
+            textScorePOG.setText(scorePOG + " PUNKTÓW");
+        } else
+            textScoreNOG.setText(scoreNOG + " BŁĘDÓW");
+
+        if (scorePOG == 4 && scoreNOG <= 1) {
+            i = 0;
+            level = 1;
+            array = getResources().getStringArray(R.array.words_base_orto_hard);
+            textWordsOG.setText(array[i]);
+            Log.d(TAG, "countTime: " + array[i]);
+        } else if (scorePOG > 4 && scoreNOG <= 1) {
+            level = 1;
+            array = getResources().getStringArray(R.array.words_base_orto_hard);
+            textWordsOG.setText(array[i]);
+            Log.d(TAG, "countTime: " + array[i]);
+        }
     }
 }
-

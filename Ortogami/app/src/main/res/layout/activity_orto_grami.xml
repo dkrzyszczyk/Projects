@@ -66,36 +66,24 @@
         android:id="@+id/buttonĄ" />
 
     <Button
-        android:text="OM"
+        android:text="ON"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignTop="@+id/buttonH"
         android:layout_toRightOf="@+id/buttonH"
         android:layout_toEndOf="@+id/buttonH"
-        android:id="@+id/buttonOM" />
+        android:id="@+id/buttonON" />
 
     <Button
         android:text="Ę"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignTop="@+id/buttonOM"
-        android:layout_toRightOf="@+id/buttonOM"
-        android:layout_toEndOf="@+id/buttonOM"
+        android:layout_alignTop="@+id/buttonON"
+        android:layout_toRightOf="@+id/buttonON"
+        android:layout_toEndOf="@+id/buttonON"
         android:layout_marginLeft="18dp"
         android:layout_marginStart="18dp"
         android:id="@+id/buttonĘ" />
-
-    <TextView
-        android:text="O PUNKTÓW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textWordsOG"
-        android:layout_alignStart="@+id/textWordsOG"
-        android:id="@+id/textScorePOG"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        />
 
     <Button
         android:text="EN"
@@ -104,8 +92,8 @@
         android:layout_below="@+id/buttonH"
         android:layout_toLeftOf="@+id/buttonÓ"
         android:layout_toStartOf="@+id/buttonÓ"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginEnd="60dp"
         android:id="@+id/buttonEN" />
 
     <TextView
@@ -120,14 +108,25 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:text="O PUNKTÓW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/textScorePOG"
+        android:layout_toLeftOf="@id/textWordsOG"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
         android:text="0 BLĘDÓW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textScoreNOG"
         android:textSize="15dp"
         android:textStyle="bold"
+        android:layout_toRightOf="@id/textWordsOG"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textWordsOG"
-        android:layout_alignEnd="@+id/textWordsOG" />
+ />
 
 </RelativeLayout>

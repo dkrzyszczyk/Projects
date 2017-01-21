@@ -100,32 +100,61 @@
         <item>Ó</item>
     </string-array>
     <string-array name="words_base_orto_grami">
-        <item>BŁA__OSTKA</item>
-        <item>__OŁĄDŹ</item>
-        <item>Ż__ŁTY</item>
-        <item>CH__ĄSZCZ</item>
-        <item>RZECZ__ŁKA</item>
-        <item>BŁA__OSTKA</item>
-        <item>__OŁĄDŹ</item>
-        <item>Ż__ŁTY</item>
-        <item>CH__ĄSZCZ</item>
-        <item>RZECZ__ŁKA</item>
+        <item>B__DĘK</item>
+        <item>CENTR__M</item>
+        <item>W__SKOTORÓWKA</item>
+        <item>BIE__ĄCY</item>
+        <item>DYRYG__NTURA</item>
+        <item>GAW__DZIARZ</item>
+        <item>DR__ŻYĆ</item>
+        <item>KĄTOMIE__</item>
+        <item>C__ŻKI</item>
+        <item>BRZD__C</item>
+    </string-array>
+    <string-array name="letters_base_orto_grami">
+        <item>RZ</item>
+        <item>U</item>
+        <item>Ą</item>
+        <item>Ż</item>
+        <item>EN</item>
+        <item>Ę</item>
+        <item>Ą</item>
+        <item>RZ</item>
+        <item>Ą</item>
+        <item>Ą</item>
     </string-array>
     <string-array name="words_base_orto_grami_hard">
-        <item>BŁA__OSTKA</item>
-        <item>__OŁĄDŹ</item>
-        <item>Ż__ŁTY</item>
-        <item>CH__ĄSZCZ</item>
-        <item>RZECZ__ŁKA</item>
-        <item>BŁA__OSTKA</item>
-        <item>__OŁĄDŹ</item>
-        <item>Ż__ŁTY</item>
-        <item>CH__ĄSZCZ</item>
-        <item>RZECZ__ŁKA</item>
-        <item>BŁA__OSTKA</item>
-        <item>__OŁĄDŹ</item>
-        <item>Ż__ŁTY</item>
-        <item>CH__ĄSZCZ</item>
-        <item>RZECZ__ŁKA</item>
+        <item>CH__DOŻYĆ</item>
+        <item>DOMOKR__ŻCA</item>
+        <item>FUNDAM__T</item>
+        <item>K__SUMENT</item>
+        <item>LĄDOL__D</item>
+        <item>M__ŻNY</item>
+        <item>OB__ĘD</item>
+        <item>ZALĄ__EK</item>
+        <item>SK__STRUOWAĆ</item>
+        <item>KOMENDANT__RA</item>
+        <item>J__TRZYĆ</item>
+        <item>TĘ__EC</item>
+        <item>DOKĄD__E</item>
+        <item>CZY__AĆ</item>
+        <item>__AŁWA</item>
+    </string-array>
+    <string-array name="letters_base_orto_grami_hard">
+        <item>Ę</item>
+        <item>Ą</item>
+        <item>EN</item>
+        <item>ON</item>
+        <item>Ó</item>
+        <item>Ę</item>
+        <item>RZ</item>
+        <item>Ż</item>
+        <item>ON</item>
+        <item>U</item>
+        <item>Ą</item>
+        <item>Ż</item>
+        <item>Ą</item>
+        <item>H</item>
+        <item>CH</item>
     </string-array>
 </resources>
