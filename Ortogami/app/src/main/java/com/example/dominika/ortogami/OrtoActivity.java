@@ -61,7 +61,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         //sprawdzaj wysokość ekranu tylko jeden raz przy uruchamianiu aplikacji
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        height = displaymetrics.heightPixels;
+        height = displaymetrics.heightPixels - 700;
 
         this.buttonH = (Button) findViewById(R.id.buttonH);
         buttonH.setOnClickListener(this);
