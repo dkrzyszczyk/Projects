@@ -33,17 +33,6 @@
  />
 
     <TextView
-        android:text="O PUNKTÓW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textScorePOG"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/buttonŻ"
-        android:layout_toStartOf="@+id/buttonŻ" />
-
-    <TextView
         android:text="0 BLĘDÓW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -144,6 +133,26 @@
         android:layout_alignBottom="@+id/buttonĄ"
         android:layout_alignLeft="@+id/buttonEN"
         android:layout_alignStart="@+id/buttonEN" />
+
+    <TextView
+        android:text="O PUNKTÓW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textScorePOG"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="POZIOM PODSTAWOWY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textLevelOG" />
 
 
 </RelativeLayout>

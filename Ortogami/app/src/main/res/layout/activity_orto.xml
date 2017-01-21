@@ -71,8 +71,7 @@
         android:layout_marginTop="54dp"
         android:id="@+id/buttonU"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/textWords"
-        android:layout_toStartOf="@+id/textWords" />
+ />
 
     <Button
         android:text="Ż"

@@ -1,5 +1,8 @@
 package com.example.dominika.ortogami;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,6 +35,7 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
     private TextView textWordsOG;
     private TextView textScorePOG;
     private TextView textScoreNOG;
+    private TextView textLevelOG;
 
     private int i;
     boolean answer = false;
@@ -83,6 +87,7 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         this.textWordsOG = (TextView) findViewById(R.id.textWordsOG);
         this.textScorePOG = (TextView) findViewById(R.id.textScorePOG);
         this.textScoreNOG = (TextView) findViewById(R.id.textScoreNOG);
+        this.textLevelOG = (TextView) findViewById(R.id.textLevelOG);
     }
 
     private class FallDownButtonsRunnable implements Runnable {
@@ -279,6 +284,7 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         }
 
         if (scorePOG == 9 && scoreNOG == 1 || scorePOG == 10 && scoreNOG == 0) {
+            textLevelOG.setText("POZIOM ZAAWANSOWANY");
             i = 0;
             level = 1;
             array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
@@ -313,5 +319,50 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         } else {
             textScoreNOG.setText(scoreNOG + " BŁĘDÓW");
         }
+
+            if (scoreNOG > 3) {
+                AlertDialog alertDialog = new AlertDialog.Builder(OrtoGramiActivity.this).create();
+                alertDialog.setTitle("PRZYKRO MI :(");
+                alertDialog.setMessage("Zrobiłeś więcej niż 3 błędy!\n\nAle poczekaj!\n\nZa chwilę będziesz miał możliwość spróbować swoich sił ponownie! :)");
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Trzymam kciuki!",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+                i = 0;
+                level = 0;
+                scoreNOG = 0;
+                scorePOG = 0;
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(new Intent(OrtoGramiActivity.this, OrtoGramiActivity.class));
+                    }
+                }, 5000);
+            }
+
+            if (scoreNOG <= 3 && i == 15) {
+                int rOG;
+                rOG = scorePOG - scoreNOG;
+                AlertDialog alertDialog = new AlertDialog.Builder(OrtoGramiActivity.this).create();
+                alertDialog.setTitle("GRATULUJĘ!");
+                alertDialog.setMessage("Uzyskałeś " + rOG + " punktów!\n\n" + "Tym samym pokonałeś dwa poziomy w module ortograficznym-gramatycznym.\n\nJeżeli gra Ci się spodobała to daj mi znać.\n\nKontakt znajdziesz w zakładce: Autor :)");
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Dziękuję! :)",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        startActivity(new Intent(OrtoGramiActivity.this, PlayActivity.class));
+                    }
+                }, 7000);
+            }
+        }
     }
-}
+

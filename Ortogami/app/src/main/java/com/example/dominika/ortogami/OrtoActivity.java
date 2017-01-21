@@ -1,5 +1,8 @@
 package com.example.dominika.ortogami;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.util.DisplayMetrics;
+
+import java.sql.Time;
 
 public class OrtoActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -250,42 +255,53 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             textScoreN.setText(scoreN + " BŁĘDÓW");
         }
+
+        if(scoreN > 2)
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(OrtoActivity.this).create();
+            alertDialog.setTitle("PRZYKRO MI :(");
+            alertDialog.setMessage("Zrobiłeś więcej niż 2 błędy!\n\nAle poczekaj!\n\nZa chwilę będziesz miał możliwość spróbować swoich sił ponownie! :)");
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Trzymam kciuki!",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+            i = 0;
+            level = 0;
+            scoreN = 0;
+            scoreP = 0;
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    startActivity(new Intent(OrtoActivity.this, OrtoActivity.class));
+                }
+            }, 5000);
+        }
+
+        if (scoreN <= 2 && i == 10) {
+            int r;
+            r = scoreP - scoreN;
+            AlertDialog alertDialog = new AlertDialog.Builder(OrtoActivity.this).create();
+            alertDialog.setTitle("GRATULUJĘ!");
+            alertDialog.setMessage("Uzyskałeś " + r + " punktów!\n\n" + "Tym samym pokonałeś dwa poziomy w module ortograficznym.\n\nSpróbuj swoich sił w kolejnym, tym razem ortograficzno-gramatycznym :)");
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Powodzenia!",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    startActivity(new Intent(OrtoActivity.this, PlayActivity.class));
+                }
+            }, 7000);
+        }
     }
 }
-    /*if (i == 10)
-    {
-        int r;
-        r = scoreP-scoreN;
-        if (ranking[2] < r){
-            if (ranking[1] < r) {
-                if (ranking[0] < r){
-                    ranking[4] = ranking[3];
-                    ranking[3] = ranking[2];
-                    ranking[2] = ranking[1];
-                    ranking[1] = ranking[0];
-                    ranking[0] = r;
-                } else {
-                    ranking[4] = ranking[3];
-                    ranking[3] = ranking[2];
-                    ranking[2] = ranking[1];
-                    ranking[1] = r;
-                }
-            } else {
-                ranking[4] = ranking[3];
-                ranking[3] = ranking[2];
-                ranking[2] = r;
-            }
-        } else {
-            if (r > ranking[3]){
-                ranking[4] = ranking[3];
-                ranking[3] = r;
-            } else {
-                if (ranking[4] < r) {
-                    ranking[4] = r;
-                }
-            }
-        }
-    }*/
 
 
 

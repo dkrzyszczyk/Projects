@@ -86,6 +86,7 @@
         <item>B__R</item>
         <item>JE__YNA</item>
         <item>MŁ__CIĆ</item>
+        <item></item>
     </string-array>
     <string-array name="letters_base_orto_hard">
         <item>CH</item>
@@ -139,6 +140,7 @@
         <item>DOKĄD__E</item>
         <item>CZY__AĆ</item>
         <item>__AŁWA</item>
+        <item></item>
     </string-array>
     <string-array name="letters_base_orto_grami_hard">
         <item>Ę</item>
