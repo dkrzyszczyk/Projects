@@ -21,6 +21,8 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
     private Button buttonEN;
     private Button buttonĄ;
     private Button buttonON;
+    private Button buttonRZ;
+    private Button buttonŻ;
 
     private Handler fallDownButonsHandler;
     private Handler countDownHandler;
@@ -74,6 +76,10 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         buttonĄ.setOnClickListener(this);
         this.buttonON = (Button) findViewById(R.id.buttonON);
         buttonON.setOnClickListener(this);
+        this.buttonRZ = (Button) findViewById(R.id.buttonRZ);
+        buttonRZ.setOnClickListener(this);
+        this.buttonŻ = (Button) findViewById(R.id.buttonŻ);
+        buttonŻ.setOnClickListener(this);
         this.textWordsOG = (TextView) findViewById(R.id.textWordsOG);
         this.textScorePOG = (TextView) findViewById(R.id.textScorePOG);
         this.textScoreNOG = (TextView) findViewById(R.id.textScoreNOG);
@@ -121,23 +127,33 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         if (buttonON.getY() > height) {
             buttonON.setY(0);
         }
+        if (buttonRZ.getY() > height) {
+            buttonRZ.setY(0);
+        }
+        if (buttonŻ.getY() > height) {
+            buttonŻ.setY(0);
+        }
 
         buttonH.getY();
-        buttonH.setY(buttonH.getY() + 50);
+        buttonH.setY(buttonH.getY() + 40);
         buttonCH.getY();
-        buttonCH.setY(buttonCH.getY() + 30);
+        buttonCH.setY(buttonCH.getY() + 40);
         buttonU.getY();
-        buttonU.setY(buttonU.getY() + 50);
+        buttonU.setY(buttonU.getY() + 40);
         buttonÓ.getY();
         buttonÓ.setY(buttonÓ.getY() + 30);
         buttonĘ.getY();
         buttonĘ.setY(buttonĘ.getY() + 30);
         buttonEN.getY();
-        buttonEN.setY(buttonEN.getY() + 50);
+        buttonEN.setY(buttonEN.getY() + 30);
         buttonĄ.getY();
-        buttonĄ.setY(buttonĄ.getY() + 30);
+        buttonĄ.setY(buttonĄ.getY() + 40);
         buttonON.getY();
-        buttonON.setY(buttonON.getY() + 50);
+        buttonON.setY(buttonON.getY() + 30);
+        buttonRZ.getY();
+        buttonRZ.setY(buttonRZ.getY() + 40);
+        buttonŻ.getY();
+        buttonŻ.setY(buttonŻ.getY() + 40);
 
         fallDownButonsHandler.postDelayed(fallDownButtonsRunnable, 120);
 
@@ -246,6 +262,24 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
                     scoreNOG++;
                 }
                 break;
+            case R.id.buttonRZ:
+                if (buttonRZ.getText().toString().equals(letters[i])) {
+                    scorePOG++;
+                    answer = true;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
+            case R.id.buttonŻ:
+                if (buttonŻ.getText().toString().equals(letters[i])) {
+                    scorePOG++;
+                    answer = true;
+                } else {
+                    answer = false;
+                    scoreNOG++;
+                }
+                break;
         }
 
         switch (level) {
@@ -271,12 +305,12 @@ public class OrtoGramiActivity extends AppCompatActivity implements View.OnClick
         if (scorePOG == 4 && scoreNOG <= 1) {
             i = 0;
             level = 1;
-            array = getResources().getStringArray(R.array.words_base_orto_hard);
+            array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
             textWordsOG.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
         } else if (scorePOG > 4 && scoreNOG <= 1) {
             level = 1;
-            array = getResources().getStringArray(R.array.words_base_orto_hard);
+            array = getResources().getStringArray(R.array.words_base_orto_grami_hard);
             textWordsOG.setText(array[i]);
             Log.d(TAG, "countTime: " + array[i]);
         }

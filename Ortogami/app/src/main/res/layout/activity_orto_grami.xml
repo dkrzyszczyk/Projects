@@ -11,112 +11,37 @@
     tools:context="com.example.dominika.ortogami.OrtoGramiActivity">
 
     <Button
-        android:text="Ó"
+        android:text="RZ"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp"
-        android:id="@+id/buttonÓ" />
-
-    <Button
-        android:text="U"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignBottom="@+id/buttonÓ"
-        android:layout_toRightOf="@+id/buttonÓ"
-        android:layout_toEndOf="@+id/buttonÓ"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-        android:id="@+id/buttonU" />
-
-    <Button
-        android:text="CH"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignBottom="@+id/buttonU"
-        android:layout_toRightOf="@+id/buttonU"
-        android:layout_toEndOf="@+id/buttonU"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:id="@+id/buttonCH" />
-
-    <Button
-        android:text="H"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/buttonÓ"
-        android:layout_toLeftOf="@+id/buttonCH"
-        android:layout_toStartOf="@+id/buttonCH"
-        android:layout_marginRight="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="35dp"
-        android:id="@+id/buttonH" />
-
-    <Button
-        android:text="Ą"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignBottom="@+id/buttonCH"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp"
-        android:id="@+id/buttonĄ" />
-
-    <Button
-        android:text="ON"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignTop="@+id/buttonH"
-        android:layout_toRightOf="@+id/buttonH"
-        android:layout_toEndOf="@+id/buttonH"
-        android:id="@+id/buttonON" />
-
-    <Button
-        android:text="Ę"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignTop="@+id/buttonON"
-        android:layout_toRightOf="@+id/buttonON"
-        android:layout_toEndOf="@+id/buttonON"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp"
-        android:id="@+id/buttonĘ" />
-
-    <Button
-        android:text="EN"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/buttonH"
-        android:layout_toLeftOf="@+id/buttonÓ"
-        android:layout_toStartOf="@+id/buttonÓ"
-        android:layout_marginRight="60dp"
-        android:layout_marginEnd="60dp"
-        android:id="@+id/buttonEN" />
+        android:id="@+id/buttonRZ" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
         android:id="@+id/textWordsOG"
         android:gravity="center"
-        android:textSize="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
         android:textStyle="bold"
-        android:layout_above="@+id/textScorePOG"
-        android:layout_centerHorizontal="true" />
+ />
 
     <TextView
         android:text="O PUNKTÓW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:id="@+id/textScorePOG"
-        android:layout_toLeftOf="@id/textWordsOG"
         android:textSize="15dp"
         android:textStyle="bold"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/buttonŻ"
+        android:layout_toStartOf="@+id/buttonŻ" />
 
     <TextView
         android:text="0 BLĘDÓW"
@@ -125,8 +50,100 @@
         android:id="@+id/textScoreNOG"
         android:textSize="15dp"
         android:textStyle="bold"
-        android:layout_toRightOf="@id/textWordsOG"
         android:layout_alignParentBottom="true"
- />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Ó"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="23dp"
+        android:id="@+id/buttonÓ"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp" />
+
+    <Button
+        android:text="H"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonH"
+        android:layout_alignBaseline="@+id/buttonÓ"
+        android:layout_alignBottom="@+id/buttonÓ"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="EN"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonEN"
+        android:layout_alignTop="@+id/buttonON"
+        android:layout_toRightOf="@+id/buttonÓ"
+        android:layout_toEndOf="@+id/buttonÓ"
+        android:layout_marginTop="17dp" />
+
+    <Button
+        android:text="Ż"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonŻ"
+        android:layout_alignBaseline="@+id/buttonRZ"
+        android:layout_alignBottom="@+id/buttonRZ"
+        android:layout_alignLeft="@+id/buttonH"
+        android:layout_alignStart="@+id/buttonH" />
+
+    <Button
+        android:text="Ą"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonĄ"
+        android:layout_below="@+id/buttonCH"
+        android:layout_toRightOf="@+id/buttonŻ"
+        android:layout_toEndOf="@+id/buttonŻ"
+        android:layout_marginTop="17dp" />
+
+    <Button
+        android:text="CH"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonCH"
+        android:layout_alignBaseline="@+id/buttonŻ"
+        android:layout_alignBottom="@+id/buttonŻ"
+        android:layout_toRightOf="@+id/buttonON"
+        android:layout_toEndOf="@+id/buttonON" />
+
+    <Button
+        android:text="ON"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonON"
+        android:layout_above="@+id/buttonRZ"
+        android:layout_toRightOf="@+id/buttonH"
+        android:layout_toEndOf="@+id/buttonH"
+        android:layout_marginBottom="29dp" />
+
+    <Button
+        android:text="Ę"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonĘ"
+        android:layout_alignTop="@+id/buttonH"
+        android:layout_alignLeft="@+id/textScoreNOG"
+        android:layout_alignStart="@+id/textScoreNOG"
+        android:layout_marginTop="14dp" />
+
+    <Button
+        android:text="U"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonU"
+        android:layout_alignBaseline="@+id/buttonĄ"
+        android:layout_alignBottom="@+id/buttonĄ"
+        android:layout_alignLeft="@+id/buttonEN"
+        android:layout_alignStart="@+id/buttonEN" />
+
 
 </RelativeLayout>
