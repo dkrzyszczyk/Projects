@@ -20,6 +20,7 @@
         <activity android:name=".OrtoActivity" />
         <activity android:name=".OrtoGramiActivity" />
         <activity android:name=".AuthorActivity" />
+        <activity android:name=".RankingActivity" />
     </application>
 
 </manifest>

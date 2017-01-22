@@ -12,7 +12,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.util.DisplayMetrics;
 
+import org.w3c.dom.Text;
+
 import java.sql.Time;
+
+import static android.R.id.message;
 
 public class OrtoActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,6 +40,7 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textLevel;
 
     private int i;
+    private int r;
     boolean answer;
     private int height;
     private int scoreP = 0;
@@ -281,7 +286,6 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (scoreN <= 2 && i == 10) {
-            int r;
             r = scoreP - scoreN;
             AlertDialog alertDialog = new AlertDialog.Builder(OrtoActivity.this).create();
             alertDialog.setTitle("GRATULUJĘ!");
@@ -299,8 +303,13 @@ public class OrtoActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(OrtoActivity.this, PlayActivity.class));
                 }
             }, 7000);
+
+
+            Intent intent = new Intent(OrtoActivity.this, RankingActivity.class);
+            intent.putExtra("Pierwsza pozycja: ", r);
         }
     }
+
 }
 
 

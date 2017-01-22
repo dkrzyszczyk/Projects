@@ -30,4 +30,10 @@ public class OrtogamiActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AuthorActivity.class);
         startActivity(intent);
     }
+
+    //metoda uruchamiajaca zasoby zakladki "Ranking" z poziomu glownej aktywnosci "Ortogami"
+    public void goToRanking(View view) {
+        Intent intent = new Intent(this, RankingActivity.class);
+        startActivity(intent);
+    }
 }
